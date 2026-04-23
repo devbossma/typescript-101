@@ -17,6 +17,8 @@ let steps: number[] = [1, 2, 3]
 let Steps: Array<string> = ["one", "two", "three"]
 
 // Functions:
+// =========
+
 // Functions are the primary means of passing data around in JavaScript.
 // TypeScript allows you to specify the types of both the input and output values of functions.
 
@@ -30,11 +32,26 @@ function add(x: number, y: number): number {
     // Correct
     return x + y
 }
-
 // Errors: at Compilation phase.
 // add() // Expected 2 arguments, but got 0.
 // add(1, "2") // Argument of type 'string' is not assignable to parameter of type 'number'.
-let sum = add(1, 3) // Type 'number' is not assignable to type 'string'.
+
+// ========================================
+
+// Declared or return Types ones could be buit in or customized.
+async function getFavoriteNumber(): Promise<number> {
+    return 26;
+}
+
+// Costome Types
+type ResponseMessage = { code: number, message: string }
+
+async function HttpCustomResponse(c: number, m: string): Promise<ResponseMessage> {
+    return { code: c, message: m }
+}
+
+
+
 
 
 
