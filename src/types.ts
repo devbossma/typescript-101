@@ -1,5 +1,7 @@
 // Inference(automatic) and Explicit(manual).
 
+import type crypto = require("crypto")
+
 // The primitives: [string, number, and boolean]
 let name: string = "string" // <==== Explicit Type Defenition
 let num = 1 // <= Infered type => let num: number
@@ -143,6 +145,8 @@ function printId(id: number | string) {
     }
 }
 
+printId(1)
+
 
 function welcomePeople(x: string[] | string) {
     if (Array.isArray(x)) {
@@ -153,6 +157,8 @@ function welcomePeople(x: string[] | string) {
         console.log("Welcome lone traveler " + x);
     }
 }
+
+welcomePeople("yassine")
 
 
 
@@ -211,13 +217,26 @@ getAdminTypeInfo({ name: "Yassine", email: "Y@g.c", role: "admin" })
 
 // Type Assertions
 // Sometimes you will have information about the type of a value that TypeScript can’t know about.
-const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
+// const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
 
 
+// Enums:
 
 
+enum Status {
+    ACTIVE,
+    PENDING,
+    PROCESSING,
+    REJECTED,
+    FINISHED
+}
 
+function checkTaskStatus(tascId: number | string | crypto.UUID): Status {
+    if (tascId === 1) {
+        return Status.ACTIVE
+    }
+    return Status.PENDING
+}
 
+checkTaskStatus(1)
 
-
-export { }
