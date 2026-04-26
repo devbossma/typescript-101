@@ -19,7 +19,6 @@ class User {
     set name(newName: string) { if (checkNotEmty(newName)) { this._userName = newName } }
     set email(email: string) { if (checkNotEmty(email)) { this._email = email } }
 
-    // 2. The static factory method that handles async work
     public static async create(name: string, email: string, rawPw: string): Promise<User> {
 
         const hashedPassword = await Password.hashPassword(rawPw);
